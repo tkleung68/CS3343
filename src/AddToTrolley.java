@@ -1,17 +1,17 @@
 
 public class AddToTrolley implements Command{
-	Company company;
-	Product product;
-	int quantity;
-	Account user;
 
 	@Override
 	public void execute(String[] cmdParts) {
-		ShopSystem shopSystem = ShopSystem.getInstance();
-		quantity = Integer.parseInt(cmdParts[3]);
+
 		try {
-			company = shopSystem.searchCompanyById(cmdParts[1]);
-			product = shopSystem.searchProductInCompany(company, Integer.parseInt(cmdParts[2]));
+			if(cmdParts.length < 4) {
+				throw new InsufficientParameterException();
+			}
+			ShopSystem shopSystem = ShopSystem.getInstance();
+			int quantity = Integer.parseInt(cmdParts[3]);
+			Company company = shopSystem.searchCompanyById(cmdParts[1]);
+			Product product = shopSystem.searchProductInCompany(company, Integer.parseInt(cmdParts[2]));
 			if(shopSystem.addItemToCustomerTrolley(product, quantity, company)) {
 				System.out.println("Item successfully added to your trolley.");
 			}

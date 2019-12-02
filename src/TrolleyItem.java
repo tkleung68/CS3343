@@ -4,10 +4,22 @@ public class TrolleyItem {
 	private int quantity;
 	private Company company;
 
-	public TrolleyItem(Product p, int q, Company c) {
-		product = p;
-		quantity = q;
-		company = c;
+	public TrolleyItem(Product product, int quantity, Company company) {
+		this.product = product;
+		this.quantity = quantity;
+		this.company = company;
+	}
+	
+	public void changeQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	public void addQuantity(int quantity) {
+		this.quantity += quantity; 
+	}
+
+	public void subQuantity(int quantity) {
+		this.quantity -= quantity; 
 	}
 	
 	public String toString() {
@@ -26,19 +38,7 @@ public class TrolleyItem {
 		return product.getPrice()*quantity;
 	}
 	
-	public void changeQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-	
-	public void addQuantity(int quantity) {
-		this.quantity += quantity; 
-	}
-
-	public void subQuantity(int quantity) {
-		this.quantity -= quantity; 
-	}
-	
-	public void completeTransaction(Customer c) {
-		company.recordTransaction(c, product, quantity);
+	public Company getCompany() {
+		return company;
 	}
 }

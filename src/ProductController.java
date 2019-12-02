@@ -10,10 +10,10 @@ public class ProductController {
 		return instance;
 	}
 	
-	public Product createProductForCompany(Company c, String name, double price, int stock) {
-		Product p = new Product(pidCounter++,name,price,stock);
-		((Company) c).addProduct(p);
-		return p;
+	public Product createProductForCompany(Account currentAccount, String name, double price, int stock) {
+		Product product = new Product(pidCounter++,name,price,stock);
+		((Company) currentAccount).addProduct(product);
+		return product;
 		
 	}
 	

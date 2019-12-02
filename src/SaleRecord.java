@@ -3,20 +3,21 @@ import java.util.Date;
 
 public class SaleRecord {
 	private Customer customer;
-	private Product product;
-	private int quantity;
+	private TrolleyItem item;
 	private Date date;
 	
-	public SaleRecord(Customer c, Product p, int q) {
-		customer = c;
-		product = p;
-		quantity = q;
+	public SaleRecord(Customer customer, TrolleyItem item) {
+		this.customer = customer;
+		this.item = item;
 		date = new Date();
 	}
 	
 	public String toString() {
 	    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");  
 	    String strDate = formatter.format(date);
+	    int quantity = item.getQuantity();
+	    Product product = item.getProduct();
+	    
 		return strDate + " " + customer.getName() + ": " + product.getName() + "(" + product.getPid() + ")*" + quantity; 
 	}
 }

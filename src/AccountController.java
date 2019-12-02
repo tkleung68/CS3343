@@ -4,6 +4,10 @@ public class AccountController {
 	private HashMap<String, Account> accountMap = new HashMap<String, Account>();
 	private static AccountController instance = new AccountController();
 	
+	public static AccountController getInstance() {
+		return instance;
+	}
+	
 	public void listAllCompany() {
 		accountMap.forEach((id,account)->{
 			if(account instanceof Company) {
@@ -20,26 +24,24 @@ public class AccountController {
 		});
 	}
 	
-	public void addAccount(Account a) {
-		accountMap.put(a.getUserID(), a);
+	public void addAccount(Account account) {
+		accountMap.put(account.getUserID(), account);
 	}
 	
-	public boolean checkExist(String id) {
-		if(accountMap.containsKey(id)) {
+	public boolean checkExist(String userID) {
+		if(accountMap.containsKey(userID)) {
 			return true;
 		}
 		return false;
 	}
-	public static AccountController getInstance() {
-		return instance;
-	}
+
 	
-	public Account searchAccountById(String id) throws NoSuchCompanyException {
-		if(accountMap.containsKey(id)) {
-			return accountMap.get(id);
+	public Account searchAccountById(String userID) throws NoSuchAccountException {
+		if(accountMap.containsKey(userID)) {
+			return accountMap.get(userID);
 		}
 		else {
-			throw new NoSuchCompanyException();
+			throw new NoSuchAccountException();
 		}
 	}
 

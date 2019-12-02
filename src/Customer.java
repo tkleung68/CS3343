@@ -17,7 +17,9 @@ public class Customer extends Account{
 		return super.getName();
 	}
 	
-
+	public double getBalance() {
+		return balance;
+	}
 
 	@Override
 	public String toString() {
@@ -30,20 +32,6 @@ public class Customer extends Account{
 	
 	public void withdraw(double amount) {
 		balance -= amount;
-	}
-	
-	public double checkout() {
-		double sum = 0;
-		for (TrolleyItem item:shoppingTrolley) {
-			sum += item.getTotal();
-		}
-		if(balance - sum >= 0) {
-			balance -= sum;
-			for (TrolleyItem item:shoppingTrolley) {
-				item.completeTransaction(this);
-			}
-		}
-		return sum;
 	}
 	
 	//yoyo 1130

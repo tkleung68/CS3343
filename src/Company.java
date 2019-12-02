@@ -3,42 +3,40 @@ import java.util.ArrayList;
 public class Company extends Account{
 	private ArrayList<Product> productList;
 	private ArrayList<SaleRecord> saleRecordList;
-	private String description;
 	
-	public Company(String uID, String pw, String n) {
-		super(uID, pw, n);
+	public Company(String userID, String password, String name) {
+		super(userID, password, name);
 		productList = new ArrayList<Product>();
 		saleRecordList = new ArrayList<SaleRecord>();
-		description = "";
 	}
 
 	public ArrayList<Product> getProductList() {
 		return productList;
 	}
 	
-	public void addProduct(Product p) {
-		productList.add(p);
+	public void addProduct(Product product) {
+		productList.add(product);
 	}
 	
-	public void removeProduct(Product p) {
-		productList.remove(p);
+	public void removeProduct(Product product) {
+		productList.remove(product);
 	}
 	
 	public Product searchProductByPid(int pid) throws NoSuchProductException {
-		for (Product p:productList) {
-			if(p.getPid() == pid)
-				return p;
+		for (Product product:productList) {
+			if(product.getPid() == pid)
+				return product;
 		}
 		throw new NoSuchProductException();
 	}
 	
 	@Override
 	public String toString() {
-		return super.getName() + " : " + description + "\n";
+		return super.getName() + " - " + productList.size() + " item(s) in total.";
 	}
 	
-	public void recordTransaction(Customer c, Product p, int q) {
-		saleRecordList.add(new SaleRecord(c,p,q));
+	public void recordTransaction(Customer customer, TrolleyItem item) {
+		saleRecordList.add(new SaleRecord(customer, item));
 		
 	}
 }

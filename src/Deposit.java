@@ -1,21 +1,23 @@
 
 public class Deposit implements Command{
-	Account user;
-	int amount;
 	
 	@Override
 	public void execute(String[] cmdParts) {
-		AccountController ac = AccountController.getInstance();
-		if(ac.currentAccountIsCustomer()) {
-			user = ac.getCurrentAccount();
-			amount = Integer.parseInt(cmdParts[1]);
-			((Customer) user).deposit(amount);
-			System.out.println("Successfully added value to your account!");
-		}else {
-			System.out.println("Please login your customer account.");
+		try {
+			if(cmdParts.length < 2) {
+				throw new InsufficientParameterException();
+			}
+			ShopSystem shopSystem = ShopSystem.getInstance();
+			int amount = Integer.parseInt(cmdParts[1]);
+			if(shopSystem.depositToCurrentAccount(amount)) {
+				System.out.println("Successfully added value to your account!");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
-
 		
+
 	}
 
 }
