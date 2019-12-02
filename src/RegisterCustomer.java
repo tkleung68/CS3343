@@ -13,12 +13,11 @@ public class RegisterCustomer implements Command{
 			String id = cmdParts[1];
 			String pw = cmdParts[2];
 			String name = cmdParts[3];
-			Date birthday = null;
-			birthday = new SimpleDateFormat("dd/MM/yyyy").parse(cmdParts[4]);
+			Date birthday = new SimpleDateFormat("dd/MM/yyyy").parse(cmdParts[4]);
 			double balance = Double.parseDouble(cmdParts[5]);
 			Customer newCustomer = new Customer(id, pw, name, birthday, balance);
 			ShopSystem shopSystem = ShopSystem.getInstance();
-			if(!shopSystem.registerCustomer(newCustomer)) {
+			if(shopSystem.registerCustomer(newCustomer)) {
 				System.out.println("Successfully create Account,  Account name:  "+ newCustomer.getName());
 			} else {
 				System.out.println("The id is existed. Please choose another id.");

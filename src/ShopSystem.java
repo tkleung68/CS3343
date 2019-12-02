@@ -69,7 +69,7 @@ import java.util.ArrayList;
 //.........       .......  ........*/(((////(%&&&&&&&&&&&%%%%%%###(((((//////******,,,,,,,...         .......................................
 public class ShopSystem {
 	
-	private static ShopSystem instance;
+	private static ShopSystem instance = new ShopSystem();;
 	private ProductController productController;
 	private AccountController accountController;
 	private TransactionController transactionController;
