@@ -106,6 +106,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		boolean running = true;
+		System.out.println("Hello, this is city shopper!");
         while(running) {
         	System.out.print("Please input your cmd: ");
         	String cmdLine = scanner.nextLine();
