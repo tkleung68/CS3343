@@ -16,6 +16,10 @@ public class AddToTrolley implements Command{
 				System.out.println("Item successfully added to your trolley.");
 			}
 		} catch (Exception e) {
+<<<<<<< HEAD
+=======
+			e.printStackTrace();
+>>>>>>> 4b44343085b49e8eb524666701b05d46824dcd04
 			System.out.println(e.getMessage());
 		}
 	}

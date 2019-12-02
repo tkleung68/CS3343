@@ -13,7 +13,15 @@ public class LoginAccount implements Command{
 			if (account != null) {
 				System.out.println("Successfully login, Welcome " + account.getName() + "!");
 			}
+<<<<<<< HEAD
 		} catch (Exception e) {
+=======
+			else {
+				System.out.println("Account not found! Check your userID and password!");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+>>>>>>> 4b44343085b49e8eb524666701b05d46824dcd04
 			System.out.println(e.getMessage());
 		}
 		

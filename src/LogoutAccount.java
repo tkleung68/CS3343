@@ -8,6 +8,10 @@ public class LogoutAccount implements Command{
 				System.out.println("Sucessfully logged out! See you next time!");
 
 		} catch (AccountIsEmptyException e) {
+<<<<<<< HEAD
+=======
+			e.printStackTrace();
+>>>>>>> 4b44343085b49e8eb524666701b05d46824dcd04
 			System.out.println(e);
 		}
 	}

@@ -23,6 +23,10 @@ public class RegisterCustomer implements Command{
 				System.out.println("The id is existed. Please choose another id.");
 			}
 		} catch (Exception e) {
+<<<<<<< HEAD
+=======
+			e.printStackTrace();
+>>>>>>> 4b44343085b49e8eb524666701b05d46824dcd04
 			System.out.println(e.getMessage());
 		}  
 		
