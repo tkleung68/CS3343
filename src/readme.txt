@@ -69,7 +69,7 @@ Todo:
 Done:
 1. all calss parameters are changed with full names
 2. transaction contronller added
-3. checkout** yoyo please check it again 
+3. checkout** yoyo please check it again
 
 Todo:
 1. product discount
