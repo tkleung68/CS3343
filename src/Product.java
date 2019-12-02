@@ -3,7 +3,6 @@ public class Product {
 	private int pid;
 	private String name;
 	private double price;
-	private CompanyDiscount cDiscount;
 	private ProductDiscount pDiscount;
 	private int stock;
 	
@@ -25,8 +24,21 @@ public class Product {
 		stock += amount;
 	}
 	
-	public void addCompanyDiscount(CompanyDiscount cDiscount) {
-		this.cDiscount = cDiscount;
+
+	public String toString() {
+		return String.format("%d: %s, $%f, %d in stock", pid, name, price, stock);
+	}
+	
+	public int getPid() {
+		return pid;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public double getPrice() {
+		return price;
 	}
 	
 }
